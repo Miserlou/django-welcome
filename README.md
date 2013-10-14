@@ -29,7 +29,7 @@ Quick start
     WELCOME_FROM_EMAIL = 'Your Name <yourname@project.tld>'
     ```
 
-4. Create templates for your emails. These live in **TEMPLATE_DIR**/email/welcome_subject.html and **TEMPLATE_DIR**/email/welcome_body.html. These have access to a User object titled _user_ if you want to get their full name or other parts of their profile. Remember to include important information for your users! Include a personal message, perhaps a link to a feedback survey, and your personal contact information (Email/Twitter/Phone number) so that customers can call you up directly.
+4. Create templates for your emails. These live in %%TEMPLATE_DIR%%/email/welcome_subject.html and %%TEMPLATE_DIR%%/email/welcome_body.html. These have access to a User object titled _user_ if you want to get their full name or other parts of their profile. Remember to include important information for your users! Include a personal message, perhaps a link to a feedback survey, and your personal contact information (Email/Twitter/Phone number) so that customers can call you up directly.
 
 5. Execute it with manage.py. _since_ defines the number of minutes since sign up to send to recent users, default 60.
 
