@@ -39,6 +39,24 @@ Quick start
 
 6. Define a cron job to do it automatically!
 
+Notifications
+---------
+
+django-welcome can also be used to send regular notifications to admins about new users. Digest emails can be sent with the contact information of all new users.
+
+1. To enable this, you first need to define one more setting:
+
+    ```python
+    NOTIFICATION_TO_EMAIL = 'Your Name <yourname@project.tld>'
+    ```
+
+2. Then, run welcome with the --notify argument.
+
+    ```bash
+    ./manage.py welcome --notify
+    ```
+
+
 Options
 ---------
 

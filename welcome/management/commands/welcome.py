@@ -21,6 +21,11 @@ class Command(BaseCommand):
          	dest="test",
             help='Test run (emails user 0). Default False.',
             default=False),
+         make_option('--notify',
+         	action="store_true",
+         	dest="notify",
+            help='Notify admins with new user information. Default False.',
+            default=False),
          make_option('--dry',
          	action="store_true",
          	dest="dry",
@@ -37,7 +42,7 @@ class Command(BaseCommand):
 
 Define your email templates in **TEMPALTE_DIR**/email/welcome_subject.html and **TEMPALTE_DIR**/email/welcome_body.html
 
-You must also define your WELCOME_FROM_EMAIL in your settings file.
+You must also define your WELCOME_FROM_EMAIL and NOTIFICATION_TO_EMAIL in your settings file.
 
 EXAMPLE:
 
@@ -47,6 +52,7 @@ EXAMPLE:
 		test =  bool(options.get('test'))
 		dry =  bool(options.get('dry'))
 		verbose =  bool(options.get('verbose'))
+		notify =  bool(options.get('notify'))
 
 		# Get New Users
 		today = datetime.datetime.now()
@@ -63,11 +69,7 @@ EXAMPLE:
 			body = render_to_string("email/welcome_body.html", {'user': user})
 
 			if verbose:
-				print "****************************************"
-				print "To: " + user.email
-				print "Subject: " + subject
-				print body
-				print "****************************************\n"
+				print "Welcoming " +  str(user.username) + '.'
 
 			if not dry:
 				try:
@@ -82,3 +84,25 @@ EXAMPLE:
 				except Exception, e:
 					print e
 
+		if notify:
+
+			num_new_users = str(len(new_users))
+
+			notify_subject = render_to_string("email/notify_subject.html", {'num_new_users': num_new_users})
+			notify_body = render_to_string("email/notify_body.html", {'new_users': new_users})
+
+			if verbose:
+				print "Notifying of " + num_new_users + ' new users.'
+
+			if not dry:
+				try:
+					send_mail(	subject=notify_subject, 
+								message=notify_body, 
+								from_email=settings.WELCOME_FROM_EMAIL, 
+								recipient_list=[settings.NOTIFICATION_TO_EMAIL], 
+								fail_silently=False, 
+								auth_user=None, 
+								auth_password=None
+							)
+				except Exception, e:
+					print e			
