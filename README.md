@@ -50,7 +50,7 @@ django-welcome can also be used to send regular notifications to admins about ne
     NOTIFICATION_TO_EMAIL = 'Your Name <yourname@project.tld>'
     ```
 
-2. Then, run welcome with the --notify argument.
+2. Then, run welcome with the --notify argument. (Note that this command will also send welcome emails.)
 
     ```bash
     ./manage.py welcome --notify
@@ -67,7 +67,7 @@ Find users who have signed up within the past X minutes (default 60) and email t
 
 Define your email templates in **TEMPALTE_DIR**/email/welcome_subject.html and **TEMPALTE_DIR**/email/welcome_body.html
 
-You must also define your WELCOME_FROM_EMAIL in your settings file.
+You must also define your WELCOME_FROM_EMAIL and NOTIFICATION_TO_EMAIL in your settings file.
 
 EXAMPLE:
 
@@ -78,5 +78,6 @@ Options:
   --test                Test run (emails oldest user in stead). Default False.
   --dry                 Dry run, does not actually send emails. Default False.
   --quiet               Quiet emails being sent. Default False.
-  -h, --help            show this help message and exit
+  --notify              Notify admins with new user information. Default
+                          False.
 ```
