@@ -1,4 +1,5 @@
-from django.core.mail import send_mail
+#from django.core.mail import send_mail
+from email_html import send_mail 
 from django.core.management.base import BaseCommand, CommandError
 from django.conf import settings
 from django.contrib.auth.models import User
