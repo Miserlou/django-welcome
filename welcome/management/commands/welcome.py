@@ -73,7 +73,7 @@ EXAMPLE:
 
 			if not dry:
 				try:
-					send_mail(	subject=subject, 
+					send_mail(	subject=subject.strip(), 
 								message=body, 
 								from_email=settings.WELCOME_FROM_EMAIL, 
 								recipient_list=[user.email], 
@@ -96,7 +96,7 @@ EXAMPLE:
 
 			if not dry:
 				try:
-					send_mail(	subject=notify_subject, 
+					send_mail(	subject=notify_subject.strip(), 
 								message=notify_body, 
 								from_email=settings.WELCOME_FROM_EMAIL, 
 								recipient_list=[settings.NOTIFICATION_TO_EMAIL], 
