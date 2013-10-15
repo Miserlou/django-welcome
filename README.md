@@ -50,7 +50,9 @@ django-welcome can also be used to send regular notifications to admins about ne
     NOTIFICATION_TO_EMAIL = 'Your Name <yourname@project.tld>'
     ```
 
-2. Then, run welcome with the --notify argument. (Note that this command will also send welcome emails.)
+2. Then create your templates. These live in the same email templates directory as the welcome messages, and are entitled _notify_subject.html_ and _notify_body.html_
+
+3. Finally, run welcome with the --notify argument. (Note that this command will also send welcome emails.)
 
     ```bash
     ./manage.py welcome --notify
