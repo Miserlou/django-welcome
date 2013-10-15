@@ -69,7 +69,7 @@ EXAMPLE:
 			body = render_to_string("email/welcome_body.html", {'user': user})
 
 			if verbose:
-				print "Welcoming " +  str(user.username) + '.'
+				print "Welcoming " +  str(user.username) + ' (' + str(user.email) + ').'
 
 			if not dry:
 				try:
@@ -92,7 +92,7 @@ EXAMPLE:
 			notify_body = render_to_string("email/notify_body.html", {'new_users': new_users})
 
 			if verbose:
-				print "Notifying of " + num_new_users + ' new users.'
+				print 'Sending notification of ' + num_new_users + ' new users to ' + settings.NOTIFICATION_TO_EMAIL + '.'
 
 			if not dry:
 				try:
