@@ -11,6 +11,7 @@ setup(
     version='0.2.3',
     packages=['welcome'],
     install_requires=[
+        'django-mail-templated'
     ],
     include_package_data=True,
     license='MIT License',

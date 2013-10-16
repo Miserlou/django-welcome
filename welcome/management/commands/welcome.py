@@ -1,5 +1,6 @@
 #from django.core.mail import send_mail
-from email_html.mail import send_mail 
+#from email_html.mail import send_mail 
+from mail_templated import send_mail
 from django.core.management.base import BaseCommand, CommandError
 from django.conf import settings
 from django.contrib.auth.models import User
@@ -74,8 +75,8 @@ EXAMPLE:
 
 			if not dry:
 				try:
-					send_mail(	subject=subject.strip(), 
-								message=body, 
+					send_mail(	"email/welcome.tpl", 
+								{'user': user}, 
 								from_email=settings.WELCOME_FROM_EMAIL, 
 								recipient_list=[user.email], 
 								fail_silently=False, 
@@ -97,8 +98,8 @@ EXAMPLE:
 
 			if not dry:
 				try:
-					send_mail(	subject=notify_subject.strip(), 
-								message=notify_body, 
+					send_mail(	"email/notify.tpl", 
+								{'num_new_users': num_new_users, 'new_users': new_users}, 
 								from_email=settings.WELCOME_FROM_EMAIL, 
 								recipient_list=[settings.NOTIFICATION_TO_EMAIL], 
 								fail_silently=False, 
