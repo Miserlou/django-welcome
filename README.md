@@ -62,7 +62,7 @@ entitled %%TEMPLATE_DIR%%/email/notify.tpl. Example templates can be found in th
 Templating
 ---------
 
-django-welcome uses [django-mail-templated](https://github.com/artemrizhov/django-mail-templated) in order to provide HTML emails to users. Examples are available in the source code of this package, including an example which uses a precompiled [ModernMail](https://github.com/patrickocoffeyo/ModernMail) template to mimic Twitter-Bootstrap.
+django-welcome uses [django-mail-templated](https://github.com/artemrizhov/django-mail-templated) in order to send HTML emails. Examples are available in the source code of this package, including an example which uses a precompiled [ModernMail](https://github.com/patrickocoffeyo/ModernMail) template to mimic Twitter-Bootstrap.
 
 The templates allow you to define both the subject and the bodies of an email, so for a multipart (both plaintext and HTML) email, you can do something like this:
 
@@ -86,7 +86,7 @@ Usage: manage.py welcome [options]
 
 Find users who have signed up within the past X minutes (default 60) and email them.
 
-Define your email templates in **TEMPALTE_DIR**/email/welcome_subject.html and **TEMPALTE_DIR**/email/welcome_body.html
+Define your email templates in **TEMPALTE_DIR**/email/welcome.tpl and **TEMPALTE_DIR**/email/notify.tpl
 
 You must also define your WELCOME_FROM_EMAIL and NOTIFICATION_TO_EMAIL in your settings file.
 

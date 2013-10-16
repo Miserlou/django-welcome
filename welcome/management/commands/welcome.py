@@ -40,7 +40,7 @@ class Command(BaseCommand):
 
     help = '''Find users who have signed up within the past X minutes (default 60) and email them.
 
-Define your email templates in **TEMPALTE_DIR**/email/welcome_subject.html and **TEMPALTE_DIR**/email/welcome_body.html
+Define your email templates in **TEMPALTE_DIR**/email/welcome.tpl and **TEMPALTE_DIR**/email/notify.tpl
 
 You must also define your WELCOME_FROM_EMAIL and NOTIFICATION_TO_EMAIL in your settings file.
 
