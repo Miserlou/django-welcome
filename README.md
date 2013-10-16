@@ -66,7 +66,7 @@ django-welcome uses [django-mail-templated](https://github.com/artemrizhov/djang
 
 The templates allow you to define both the subject and the bodies of an email, so for a multipart (both plaintext and HTML) email, you can do something like this:
 
-    ```python
+    ```
     {% block subject %}
     Welcome, {{ user.username }}!
     {% endblock %}
