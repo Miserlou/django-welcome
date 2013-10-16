@@ -29,7 +29,7 @@ Quick start
     WELCOME_FROM_EMAIL = 'Your Name <yourname@project.tld>'
     ```
 
-4. Create templates for your emails. These live in %%TEMPLATE_DIR%%/email/welcome_subject.html and %%TEMPLATE_DIR%%/email/welcome_body.html. These have access to a User object titled _user_ if you want to get their full name or other parts of their profile. Remember to include important information for your users! Include a personal message, perhaps a link to a feedback survey, and your personal contact information (Email/Twitter/Phone number) so that customers can call you up directly.
+4. Create templates for your emails. These live in %%TEMPLATE_DIR%%/email/welcome.tpl. These have access to a User object titled _user_ if you want to get their full name or other parts of their profile. Remember to include important information for your users! Include a personal message, perhaps a link to a feedback survey, and your personal contact information (Email/Twitter/Phone number) so that customers can call you up directly.
 
 5. Execute it with manage.py. _since_ defines the number of minutes since sign up to send to recent users, default 60.
 
@@ -51,7 +51,7 @@ django-welcome can also be used to send regular notifications to admins about ne
     ```
 
 2. Then create your templates. These live in the same email templates directory as the welcome messages, and are
-entitled %%TEMPLATE_DIR%%/email/notify_subject.html and %%TEMPLATE_DIR%%/email/notify_body.html. Example templates can be found in the source code of this package.
+entitled %%TEMPLATE_DIR%%/email/notify.tpl. Example templates can be found in the source code of this package.
 
 3. Finally, run welcome with the --notify argument. (Note that this command will also send welcome emails.)
 
@@ -59,6 +59,26 @@ entitled %%TEMPLATE_DIR%%/email/notify_subject.html and %%TEMPLATE_DIR%%/email/n
     ./manage.py welcome --notify
     ```
 
+Templating
+---------
+
+django-welcome uses [django-mail-templated](https://github.com/artemrizhov/django-mail-templated) in order to provide HTML emails to users. Examples are available in the source code of this package, including an example which uses a precompiled [ModernMail](https://github.com/patrickocoffeyo/ModernMail) template to mimic Twitter-Bootstrap.
+
+The templates allow you to define both the subject and the bodies of an email, so for a multipart (both plaintext and HTML) email, you can do something like this:
+
+    ```python
+    {% block subject %}
+    Welcome, {{ user.username }}!
+    {% endblock %}
+
+    {% block body %}
+    We just wanted to thank you for joining our website.
+    {% endblock %}
+
+    {% block html %}
+    We just wanted to <b>thank you</b> for joining our website.
+    {% endblock %}
+    ```
 
 Options
 ---------

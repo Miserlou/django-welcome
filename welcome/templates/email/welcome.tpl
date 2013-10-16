@@ -13,7 +13,7 @@ Welcome, {{user}}! I just wanted to send you a personal note thanking you for jo
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     
 
-    <title>Welcome, {{ user.name }}!</title>
+    <title>Welcome, {{user.username}}!</title>
   </head>
   <body style="margin: 0; font-family: Helvetica Neue, Helvetica, Arial, sans-serif; font-size: 14px; line-height: 20px; color: #333333; background-color: #ffffff; width: 100%; -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; padding: 0;">
     <center>
@@ -24,7 +24,7 @@ Welcome, {{user}}! I just wanted to send you a personal note thanking you for jo
             <table id="header" style="max-width: 100%; background-color: transparent; border-collapse: collapse; border-spacing: 0; text-align: left;">
               <tr style="vertical-align: top;">
                 <td style="border-collapse: collapse;">
-                  <h1 style="margin: 10px 0; font-family: inherit; font-weight: bold; line-height: 40px; color: inherit; text-rendering: optimizelegibility; font-size: 38.5px;">Welcome, {{ user.name }}!</h1>
+                  <h1 style="margin: 10px 0; font-family: inherit; font-weight: bold; line-height: 40px; color: inherit; text-rendering: optimizelegibility; font-size: 38.5px;">Welcome, {{user.username}}!</h1>
                 </td>
               </tr>
             </table>

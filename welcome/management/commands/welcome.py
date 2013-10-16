@@ -1,11 +1,9 @@
-#from django.core.mail import send_mail
-#from email_html.mail import send_mail 
-from mail_templated import send_mail
 from django.core.management.base import BaseCommand, CommandError
 from django.conf import settings
 from django.contrib.auth.models import User
 from django.template.loader import render_to_string
 
+from mail_templated import send_mail
 from optparse import make_option
 import datetime
 
@@ -67,8 +65,6 @@ EXAMPLE:
 			new_users = [new_users[0]]
 
 		for user in new_users:
-			subject = render_to_string("email/welcome_subject.html", {'user': user})
-			body = render_to_string("email/welcome_body.html", {'user': user})
 
 			if verbose:
 				print "Welcoming " +  str(user.username) + ' (' + str(user.email) + ').'
@@ -89,9 +85,6 @@ EXAMPLE:
 		if notify:
 
 			num_new_users = str(len(new_users))
-
-			notify_subject = render_to_string("email/notify_subject.html", {'num_new_users': num_new_users})
-			notify_body = render_to_string("email/notify_body.html", {'new_users': new_users})
 
 			if verbose:
 				print 'Sending notification of ' + num_new_users + ' new users to ' + settings.NOTIFICATION_TO_EMAIL + '.'

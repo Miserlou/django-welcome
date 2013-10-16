@@ -37,7 +37,7 @@ Hooray!
             <table id="header" style="max-width: 100%; background-color: transparent; border-collapse: collapse; border-spacing: 0; text-align: left;">
               <tr style="vertical-align: top;">
                 <td style="border-collapse: collapse;">
-                  <h1 style="margin: 10px 0; font-family: inherit; font-weight: bold; line-height: 40px; color: inherit; text-rendering: optimizelegibility; font-size: 38.5px;">Welcome, {{ user.name }}!</h1>
+                  <h1 style="margin: 10px 0; font-family: inherit; font-weight: bold; line-height: 40px; color: inherit; text-rendering: optimizelegibility; font-size: 38.5px;">{{num_new_users}} new users!</h1>
                 </td>
               </tr>
             </table>
